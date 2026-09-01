@@ -76,6 +76,14 @@ h1{
   font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
   background:var(--vest);color:#1a0d02;padding:3px 9px;border-radius:100px;
 }
+.today-tag.mixed{background:#F2C230}
+.hero-alert{
+  margin:14px 0 0;padding:11px 13px;border-radius:10px;
+  background:rgba(214,69,69,.14);border:1px solid rgba(214,69,69,.35);
+}
+.hero-alert p{margin:0;font-size:13px;color:#FFD9D9;line-height:1.55}
+.hero-alert b{font-weight:700;color:#fff}
+.hero-alert a{color:#fff;text-decoration:underline;font-weight:600;white-space:nowrap}
 .today-body{padding-left:16px;color:#C7D6DE;font-size:14.5px;margin:6px 0 0}
 .today-body b{color:#fff;font-weight:600}
 
@@ -225,6 +233,42 @@ figcaption .t{color:var(--steel);font-weight:500;margin-right:5px}
 }
 .foot{margin-top:26px;font-size:12px;color:var(--steel);text-align:center}
 
+/* ---------- RISK SUMMARY ---------- */
+.risk{margin-top:34px}
+.risk-h{
+  font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--steel);
+  font-weight:700;margin:0 0 4px;
+}
+.risk-sub{font-size:13px;color:#415866;margin:0 0 16px}
+.risk-grid{display:grid;grid-template-columns:1fr;gap:12px}
+.r-card{
+  background:var(--card);border:1px solid var(--line);border-left:4px solid var(--steel);
+  border-radius:10px;padding:14px 16px;
+}
+.r-card.ok{border-left-color:var(--done)}
+.r-card.late{border-left-color:#D64545;background:rgba(214,69,69,.05)}
+.r-card.warn{border-left-color:var(--vest);background:rgba(242,106,27,.05)}
+.r-card.extra{border-left-color:var(--tarp)}
+.r-top{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.r-tag{
+  font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  padding:2px 8px;border-radius:100px;
+}
+.r-card.ok .r-tag{background:rgba(31,138,112,.14);color:#136B55}
+.r-card.late .r-tag{background:rgba(214,69,69,.14);color:#A32B2B}
+.r-card.warn .r-tag{background:rgba(242,106,27,.15);color:#B8480C}
+.r-card.extra .r-tag{background:rgba(27,95,191,.12);color:var(--tarp-dk)}
+.r-title{font-size:14.5px;font-weight:700;color:var(--ink)}
+.r-desc{font-size:13px;color:#415866;margin:0 0 9px;line-height:1.5}
+.r-list{margin:0;padding:0;list-style:none}
+.r-list li{
+  font-size:13px;color:#2c3e46;padding:5px 0 5px 18px;position:relative;line-height:1.5;
+  border-top:1px dashed var(--line);
+}
+.r-list li:first-child{border-top:0}
+.r-list li::before{content:"—";position:absolute;left:0;color:var(--steel)}
+.r-list li b{font-weight:600;color:var(--ink)}
+
 /* ---------- GANTT ---------- */
 .gantt{
   margin:34px 0 6px;background:var(--card);border-top:1px solid var(--line);
@@ -317,13 +361,21 @@ figcaption .t{color:var(--steel);font-weight:500;margin-right:5px}
       <span class="stripe"></span>
       <div class="today-head">
         <span class="today-date mono">1 ก.ย. 2569</span>
-        <span class="today-tag">เร็วกว่าแผน</span>
+        <span class="today-tag mixed">งานผสม เร็ว+ช้า</span>
       </div>
       <p class="today-body">
         ขั้นตอนวันนี้ — <b>ทาสีเก็บรายละเอียดใต้หลังคา</b> ทีมชุดที่ 1 ย้ายออฟฟิศเคลื่อนที่ออกแล้ว เตรียมจบงาน<br>
         ถัง Birm ทั้ง 4 ใบ ยกวางบนแท่นครบตั้งแต่ <b>15 ส.ค.</b> ซึ่งตามแผนกำหนดไว้ 24–25 ส.ค. → <b>เร็วกว่าแผน 9–10 วัน</b><br>
         สถานะถังตอนนี้เป็น <b>การวางลงบนฐานเท่านั้น</b> ยังไม่เชื่อมท่อเข้าระบบ และยังไม่เติมสาร Birm
       </p>
+
+      <div class="hero-alert">
+        <p>
+          ⚠ <b>3 งานหลุดจากแผน:</b> เชื่อมท่อเข้าระบบ (หมดเขตแผนมา 3 วัน) · ติดตั้งระบบไฟ (หมดเขตแผนแล้ว) · เติมสาร Birm (วันสุดท้ายของแผนคือวันนี้) — <b>ยังไม่เริ่มงานจริงสักรายการ</b> ทำให้งานทดสอบระบบ (2–3 ก.ย.) เสี่ยงหลุดกรอบเวลาโครงการ
+          <a href="#risk">ดูรายละเอียด ↓</a>
+        </p>
+      </div>
+
       <div class="bar">
         <div class="bar-track"><div class="bar-fill" style="width:55%"></div></div>
         <div class="bar-legend">
@@ -1006,6 +1058,55 @@ figcaption .t{color:var(--steel);font-weight:500;margin-right:5px}
       <b>หมายเหตุ:</b> ทีมงานชุดสร้างอาคารยังคงอยู่หน้างานต่อเพื่อเก็บรายละเอียดจนถึง 3 ก.ย. ส่วนงาน "ยึดฐานถัง Birm" จะดำเนินการโดยทีมงานอีกชุดที่เข้ามาเสริม<br>
       <b>อัปเดต 24 ส.ค.:</b> วัสดุงานเชื่อมท่อและสาร Birm มาส่งพร้อมหน้างานแล้ว รอเริ่มดำเนินการ
     </p>
+  </div>
+
+  <div class="risk" id="risk">
+    <p class="risk-h">สถานะเทียบกับแผน — ณ 1 ก.ย. 2569</p>
+    <p class="risk-sub">วันนี้คือวันที่ 32 จาก 34 วัน (94% ของเวลาที่มี) แต่งานเสร็จจริง 55% — งานระบบหลัก 3 อย่างยังไม่เริ่ม แม้กรอบเวลาเดิมจะหมดหรือใกล้หมดแล้ว</p>
+    <div class="risk-grid">
+
+      <div class="r-card ok">
+        <div class="r-top"><span class="r-tag">ตามแผน — ไม่มีปัญหา</span></div>
+        <div class="r-title">งานโครงสร้างและติดตั้งถัง Birm</div>
+        <p class="r-desc">กิจกรรมกลุ่มนี้เสร็จหมดหรือเร็วกว่ากำหนดทุกรายการ</p>
+        <ul class="r-list">
+          <li>แท่นวางถัง / Set ตัวรับน้ำหนัก / เสาหลังคา — <b>เสร็จก่อนกำหนด</b></li>
+          <li>นำถังเข้าพื้นที่ + ยกวางบนแท่น — <b>เร็วกว่าแผน 9–10 วัน</b></li>
+        </ul>
+      </div>
+
+      <div class="r-card late">
+        <div class="r-top"><span class="r-tag">หลุดจากแผน — ต้องจับตา</span></div>
+        <div class="r-title">เส้นทางวิกฤต (Critical Path) ของโครงการ</div>
+        <p class="r-desc">3 กิจกรรมนี้หมดเวลาตามแผนไปแล้วหรือหมดพอดีวันนี้ แต่ยังไม่เริ่มงานจริง</p>
+        <ul class="r-list">
+          <li>เชื่อมท่อเข้าระบบ — แผนเดิม 25–30 ส.ค. <b>หมดเขตมา 3 วันแล้ว ยังไม่เริ่ม</b></li>
+          <li>ติดตั้งระบบไฟ — แผนเดิม 29–31 ส.ค. <b>หมดเขตมาแล้ว ยังไม่เริ่ม</b></li>
+          <li>เติมสาร Birm — แผนเดิมถึง 1 ก.ย. (วันนี้) <b>วันสุดท้ายของกรอบเวลาพอดี ยังไม่เริ่ม</b></li>
+        </ul>
+      </div>
+
+      <div class="r-card warn">
+        <div class="r-top"><span class="r-tag">เสี่ยงหลุด — รอส่งต่อ</span></div>
+        <div class="r-title">ทดสอบระบบ (2–3 ก.ย.)</div>
+        <p class="r-desc">ต้องรอ 3 กิจกรรมข้างบนเสร็จก่อนถึงจะเริ่มได้ จึงมีความเสี่ยงสูงที่จะหลุดกรอบเวลา 3 ก.ย.</p>
+        <ul class="r-list">
+          <li>ทดสอบระบบ 2/9–3/9 — <b>ยังไม่เริ่ม</b> ต้องรองาน 3 อย่างข้างบนก่อน</li>
+          <li>เหลือเวลาตามแผนเพียง <b>2 วัน</b> สำหรับงานระบบที่ยังไม่เริ่มเลยสักงาน</li>
+        </ul>
+      </div>
+
+      <div class="r-card extra">
+        <div class="r-top"><span class="r-tag">งานเพิ่มนอกแผน — ทำเสร็จแล้ว</span></div>
+        <div class="r-title">งานที่ไม่มีในแผนเดิม</div>
+        <p class="r-desc">เกิดขึ้นระหว่างทางแต่ดำเนินการเสร็จเรียบร้อยแล้ว ไม่กระทบเปอร์เซ็นต์ความคืบหน้า</p>
+        <ul class="r-list">
+          <li>ล้อมรั้วรอบอาคาร + ทาสี — <b>เสร็จ 19–20 ส.ค.</b></li>
+          <li>รื้อรั้วชั่วคราว + ทางเดินเท้าสีเขียว — <b>เสร็จ 26–28 ส.ค.</b></li>
+        </ul>
+      </div>
+
+    </div>
   </div>
 
   <p class="foot">อัปเดตล่าสุด 1 ก.ย. 2569</p>
